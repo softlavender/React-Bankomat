@@ -1,66 +1,171 @@
-body { /* remove body selector later */
-  margin: 0;
-}
-
-/* style for the app content */
 .App {
   min-height: 100vh;
   margin: auto;
-  color: #282c34;
-  background-color: purple;
-
+  background-color: whitesmoke;
+  color: #3e2e0f;
+  
   display: grid;
   grid-template: 80px 1fr 100px / auto;
   grid-row-gap: 10px;
 }
   .App > * {
-    border-radius: 25px;
+    margin: auto 8px;
   }
 
-
-  #App-header {
-    background-color: #282c34;
-    color: whitesmoke;
+  #App-header, #App-footer {
+    text-align: center;
   }
-    #App-header h1 span {
-      color: white;
-    }
-
 
   #App-main {
     height: 100%;
-    width: 100%;
-    margin: auto;
-    background-color: whitesmoke;
+    max-width: 1000px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 3px 0px #282c345e;
+    background-color: #001E33;
+    background-color: white;
+    transition: .3s;
+
+    display: grid;
+    grid-template: 1fr 100px / auto;
+    grid-row-gap: 50px;
   }
-    #App-main > * {
-      background-color: yellow;
+    #welcome {
+      align-self: center;
+      justify-self: center;
+      min-width: 400px;
+      text-align: center;
+      color: unset;
     }
-    #App-main h3 {
-      width: 90%;
-      margin: auto;
-    }
+      #welcome b {
+        color: #3e2e0ff9;
+      }
+
     #bankomat {
-      height: auto;
-      width: 40%;
-      margin: auto;
+      align-self: end;
+      justify-self: center;
+      min-width: 400px;
     }
+      #balance-status {
+        padding-bottom: 5px;
+        border-bottom: 1px solid #282c345e;
+        text-align: center;
+      }
+        #balance-status h1 {
+          margin: 0 0 15px;
+        }
 
-    
-  #App-footer {
-    background-color: #282c34;
-    color: whitesmoke;
+      #withdraw-deposit {
+        margin-top: 30px;
+        display: grid;
+        grid-gap: 25px;
+      }
+        #withdraw-deposit > *:not(span, #deposit-withdraw-btns) :first-child {
+          display: block;
+          margin-bottom: 5px;
+          font-size: .95em;
+          color: #3e2e0faf;
+        }
+        #withdraw-deposit > *:not(span, #deposit-withdraw-btns) input, button, select {
+          height: 25px;
+          width: auto;
+          margin-right: 5px;
+          border-radius: 4px;
+          border: 2px solid #00000011;
+          box-sizing: border-box;
+          text-transform: capitalize;
+        }
+        #specific-amount {
+          /* background-color: purple; */
+        }
+        #amount-btns button {
+          /* background-color: purple; */
+        }
+        #change-currency {
+          /* background-color: orange; */
+        }
+        #withdraw-btn, #deposit-btn {
+          height: 50px;
+          width: calc(50% - 5px);
+          background-color: #36054d;
+          background-color: #3e2e0f;
+          font-weight: bold;
+          color: white;
+        }
+
+        /* where money amount apperars in bold, paint it yellow*/
+        .money-counters {
+          font-family: "Avenir Next";
+          font-size: 1rem;
+          /* color: #3f7da2; blue test*/
+        }
+          .money-counters b {
+            /* font-size: 1.1em; */
+            color: #3e2e0faf;
+          }
+          .money-counters span {
+            font-family: 'Segoe UI';
+            font-size: .8em;
+          }
+
+
+    #service-btn {
+      justify-self: center;
+      height: unset;
+      width: 400px;
+      min-width: 80%;
+      margin-right: unset;
+      border: none;
+      border-start-end-radius: 15px;
+      border-start-start-radius: 15px;
+      background-color: #36054d;
+      background-color: #3e2e0f;
+      font-size: 24px;
+      text-transform: capitalize;
+      font-weight: bold;
+      color: white;
+      /* text-shadow: 0px 1px 2px #282c34; */
+      transition: .3s;
+    }
+      #service-btn:hover, #withdraw-btn:hover, #deposit-btn:hover  {
+        background-color: #36054de8;
+        background-color: #3e2e0ff9;
+      }
+
+
+  /* common style for all button and select elements */
+  button, select {
+    cursor: pointer;
   }
-
-
 
 
 /* media queries */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1020px) {
+  #App-main {
+    width: 100%;
+    margin: auto;
+    box-shadow: 0px 2px 10px 0px #282c345e;
+  }
+}
+
+@media screen and (min-width: 1100px) {
   .App {
     grid-row-gap: 20px;
   }
     #App-main {
-      max-width: 1200px;
+      grid-template: auto / 100px 1fr;
     }
+      #bankomat, #welcome {
+        align-self: center;
+        margin-left: -100px;
+      }
+
+      #service-btn {
+        grid-area: 1 / 1 / 2 / 2;
+        width: auto;
+        height: 80%;
+        align-self: center;
+        border-radius: unset;
+        border-start-end-radius: 15px;
+        border-end-end-radius: 15px;
+      }
 }

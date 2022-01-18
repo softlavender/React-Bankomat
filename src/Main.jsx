@@ -1,14 +1,16 @@
 import Bankomat from "./bankomat/Bankomat";
 
-const Main = _ => (
+const Main = ({usingService, updServiceStatus}) => {
+  console.log(usingService);
+
+  return (
   <>
-    <h3>main component</h3>
-    <h3>main component</h3>
-    <h3>main component</h3>
-    <h3>main component</h3>
-    <h3>main component</h3>
-    <Bankomat />
-    <Bankomat />
+    {usingService ? <Bankomat /> : <span id="welcome">Welcome, start the ATM-Service by the <b>"Show Service"</b> button</span>}
+    
+    <button id='service-btn' onClick={updServiceStatus}>
+      {usingService ? 'hide' : 'show'} service
+    </button>
   </>
-)
+  )
+}
 export default Main
