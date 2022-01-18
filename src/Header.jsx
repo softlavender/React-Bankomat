@@ -1,2 +1,2 @@
-const Header = _ => <h1>header <span>component</span></h1>
+const Header = _ => <h1>Övningsuppgift - Bankomat</h1>
 export default Header

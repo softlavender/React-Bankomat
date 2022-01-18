@@ -1,22 +1,24 @@
 import './App.css';
-import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
+import { useState } from 'react';
 
 function App() {
+  const [usingService, setUsingService] = useState(false)
+
+  const updServiceStatus = _ => setUsingService(!usingService)
+
   return (
     <div className="App">
       <header id="App-header">
         <Header />
       </header>
 
-      <mian id="App-main">
-        <Main />
-      </mian>
+      <main id="App-main">
+        <Main usingService={usingService} updServiceStatus={updServiceStatus}/>
+      </main>
 
-      <footer id="App-footer">
-        <Footer />
-      </footer>
+      <footer id="App-footer">copyright brandworks</footer>
     </div>
   );
 }
